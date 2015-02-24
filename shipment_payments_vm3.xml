@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7.0" method="upgrade">
+
+    <!--<name>COM_HELLOWORLD</name>
+    <creationDate>Once upon a time</creationDate>
+    <author>John Doe</author>
+    <authorEmail>john.doe@example.org</authorEmail>
+    <authorUrl>http://www.example.org</authorUrl>
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+    <version>0.0.12</version>
+    <description>COM_HELLOWORLD_DESCRIPTION</description>-->
+    <name>COM_SHIPMENT_PAMYNETS_VM3</name>
+    <author>Dodatkijoomla.pl and sulzycki.com.pl</author>
+    <creationDate>04.02.2015</creationDate>
+    <copyright>Copyright (c) 2015 DodatkiJoomla.pl</copyright>
+    <license>GNU/GPL v2</license>
+    <authorEmail>kontakt@dodatkijoomla.pl</authorEmail>
+    <authorUrl>http://dodatkijoomla.pl</authorUrl>
+    <version>2.0</version>
+    <description>Dodatek wiążący wysyłki z płatnościami w Virtuemart 3 dla Joomla 3.</description>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <!-- Note the folder attribute: This attribute describes the folder
+        to copy FROM in the package to install therefore files copied
+        in this section are copied from "site/" in the package -->
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>helloworld.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>language</folder>
+    </files>
+
+    <media destination="com_helloworld" folder="media">
+        <filename>index.html</filename>
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
+
+    <administration>
+        <menu img="../media/com_helloworld/images/tux-16x16.png">COM_HELLOWORLD_MENU</menu>
+        <submenu>
+            <menu view="helloworlds">COM_HELLOWORLD_SUBMENU_MESSAGES</menu>
+            <menu link="option=com_categories&amp;view=categories&amp;extension=com_helloworld">COM_HELLOWORLD_SUBMENU_CATEGORIES</menu>
+        </submenu>
+        <!-- Note the folder attribute: This attribute describes the folder
+            to copy FROM in the package to install therefore files copied
+            in this section are copied from "admin/" in the package -->
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>helloworld.php</filename>
+            <filename>controller.php</filename>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+            <folder>language</folder>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+        </files>
+    </administration>
+
+</extension>
+

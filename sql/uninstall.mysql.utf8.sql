@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__vm3_shipmentmethod_paymentmethods_xref`;
