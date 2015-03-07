@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class ShipmentPaymentsVm3ViewShipmentPaymentsVm3 extends JView
+class Shipment_Payments_Vm3ViewMain extends JView
 {
 	public function display($tpl = null) 
 	{
@@ -13,9 +13,13 @@ class ShipmentPaymentsVm3ViewShipmentPaymentsVm3 extends JView
 		$form = $this->get('Form');
 		$item = $this->get('Item');
 
+//        var_dump($this->getModel());
+
 		// Assign the Data
 		$this->form = $form;
 		$this->item = $item;
+
+//        var_dump($this->form);
 
 		// Set the toolbar
 		$this->addToolBar();
@@ -31,7 +35,7 @@ class ShipmentPaymentsVm3ViewShipmentPaymentsVm3 extends JView
 	{
 		JRequest::setVar('hidemainmenu', true);
         JToolBarHelper::title(JText::_('COM_SHIPMENT_PAMYNETS_VM3'));
-        JToolBarHelper::addNew();
+        JToolBarHelper::addNew('relation.add');
 //		$isNew = ($this->item->id == 0);
 //		JToolBarHelper::title($isNew ? JText::_('COM_SHIPMENT_PAMYNETS_VM3') : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');
 //		JToolBarHelper::save('helloworld.save');

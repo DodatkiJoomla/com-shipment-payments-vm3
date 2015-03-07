@@ -5,16 +5,16 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controller');
 
-class ShipmentPaymentsVm3Controller extends JController
+class Shipment_Payments_Vm3Controller extends JController
 {
 	function display($cachable = false) 
 	{
 		// Set default view if not set
-		JRequest::setVar('view', JRequest::getCmd('view', 'ShipmentPaymentsVm3'));
+		JRequest::setVar('view', JRequest::getCmd('view', 'Main'));
 		
 		parent::display($cachable);
 		
 		// Add submenu
-		ShipmentPaymentsVm3Helper::addSubmenu('messages');
+        Shipment_Payments_Vm3_Helper::addSubmenu('messages');
 	}
 }

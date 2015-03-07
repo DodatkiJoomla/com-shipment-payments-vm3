@@ -10,7 +10,7 @@
 // No direct access to this file
 defined('_JEXEC') or die;
 
-class ShipmentPaymentsVm3Helper
+class Shipment_Payments_Vm3_Helper
 {
     public static function addSubmenu($submenu)
     {
