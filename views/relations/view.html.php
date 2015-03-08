@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class Shipment_Payments_Vm3ViewRelation extends JView
+class Shipment_Payments_Vm3ViewRelations extends JView
 {
 	public function display($tpl = null) 
 	{
@@ -38,8 +38,7 @@ class Shipment_Payments_Vm3ViewRelation extends JView
 		JRequest::setVar('hidemainmenu', true);
         JToolBarHelper::title(JText::_('COM_SHIPMENT_PAMYNETS_VM3'));
         JToolBarHelper::addNew('relation.add');
-        JToolBarHelper::save('relation.save');
-        JToolBarHelper::cancel('relation.cancel');
+        JToolBarHelper::save('relation.save', NULL, "sdsdfds");
 //		$isNew = ($this->item->id == 0);
 //		JToolBarHelper::title($isNew ? JText::_('COM_SHIPMENT_PAMYNETS_VM3') : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');
 //		JToolBarHelper::save('helloworld.save');

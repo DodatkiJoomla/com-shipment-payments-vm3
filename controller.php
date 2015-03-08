@@ -7,7 +7,7 @@ jimport('joomla.application.component.controller');
 
 class Shipment_Payments_Vm3Controller extends JController
 {
-	function display($cachable = false) 
+	function display($cachable = false,$urlparams = false)
 	{
 		// Set default view if not set
 		JRequest::setVar('view', JRequest::getCmd('view', 'Main'));
@@ -17,4 +17,6 @@ class Shipment_Payments_Vm3Controller extends JController
 		// Add submenu
         Shipment_Payments_Vm3_Helper::addSubmenu('messages');
 	}
+
+
 }
