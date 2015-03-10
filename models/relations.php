@@ -4,7 +4,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modeladmin');
 
-class Shipment_Payments_Vm3ModelMain extends JModelAdmin
+class Shipment_Payments_Vm3ModelRelations extends JModelAdmin
 {
 	public function getForm($data = array(), $loadData = true)
 	{
@@ -68,7 +68,7 @@ class Shipment_Payments_Vm3ModelMain extends JModelAdmin
         die;
         return $db->loadObjectList();
     }
-	public function getTable($name = '', $prefix = 'Shipment_Payments_Vm3Table', $options = array())
+	public function getTable($name = 'Relation', $prefix = 'Shipment_Payments_Vm3Table', $options = array())
 	{
 
 		return parent::getTable($name, $prefix, $options);
