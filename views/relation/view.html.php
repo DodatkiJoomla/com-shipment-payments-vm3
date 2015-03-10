@@ -37,7 +37,7 @@ class Shipment_Payments_Vm3ViewRelation extends JView
 	{
 		JRequest::setVar('hidemainmenu', true);
         JToolBarHelper::title(JText::_('COM_SHIPMENT_PAMYNETS_VM3'));
-        JToolBarHelper::addNew('relation.add');
+//        JToolBarHelper::addNew('relation.add');
         JToolBarHelper::save('relation.save');
         $isNew = ($this->item->id == 0);
         JToolBarHelper::cancel('relation.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');

@@ -28,8 +28,27 @@
                 <th>
                     Powiązane Płatności
                 </th>
+                <th>
+                    ID
+                </th>
             </tr>
             </thead>
+            <tbody>
+            <?php
+            $i = 1;
+            foreach ($this->get('Data') as $row) {
+                echo "<tr>";
+                echo "<td>". $i ."</td>";
+                echo "<td>". $row->shipment_name ."</td>";
+                echo "<td>". $row->payment_name ."</td>";
+                echo "<td>". $row->id ."</td>";
+                echo "</tr>";
+                $i++;
+            }
+
+            ?>
+            </tbody>
+
             <tfoot>
             <tr>
                 <td colspan="10">
