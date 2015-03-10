@@ -38,17 +38,24 @@
             </thead>
             <tbody>
             <?php
-            $i = 1;
-            foreach ($this->get('Data') as $row) {
+            if( $this->get('Data') ) {
+                $i = 1;
+                foreach ($this->get('Data') as $row) {
+                    echo "<tr>";
+                    echo "<td>". $i ."</td>";
+                    echo "<td><button>Włącz/Wyłącz</button></td>";
+                    echo "<td>". $row->shipment_name ."</td>";
+                    echo "<td>". $row->payment_name ."</td>";
+                    echo "<td>". $row->id ."</td>";
+                    echo "</tr>";
+                    $i++;
+                }
+            } else {
                 echo "<tr>";
-                echo "<td>". $i ."</td>";
-                echo "<td><button>Włącz/Wyłącz</button></td>";
-                echo "<td>". $row->shipment_name ."</td>";
-                echo "<td>". $row->payment_name ."</td>";
-                echo "<td>". $row->id ."</td>";
+                echo "<td colspan='5'>Brak powiązań!</td>";
                 echo "</tr>";
-                $i++;
             }
+
 
             ?>
             </tbody>

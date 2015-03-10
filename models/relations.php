@@ -64,8 +64,7 @@ class Shipment_Payments_Vm3ModelRelations extends JModelAdmin
 //            ->where($db->quoteName('xref.publish') .'=1' );
         $db->setQuery($query);
 
-        print_r($db->loadObjectList());
-        die;
+
         return $db->loadObjectList();
     }
 	public function getTable($name = 'Relation', $prefix = 'Shipment_Payments_Vm3Table', $options = array())
