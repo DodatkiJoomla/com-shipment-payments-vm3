@@ -14,13 +14,17 @@ class Shipment_Payments_Vm3_Helper
 {
     public static function addSubmenu($submenu)
     {
-        JSubMenuHelper::addEntry(JText::_('COM_HELLOWORLD_SUBMENU_MESSAGES'),
-            'index.php?option=com_helloworld', $submenu == 'messages');
-        JSubMenuHelper::addEntry(JText::_('COM_HELLOWORLD_SUBMENU_CATEGORIES'),
-            'index.php?option=com_categories&view=categories&extension=com_helloworld', $submenu == 'categories');
         $document = JFactory::getDocument();
-        if ($submenu == 'categories'){
-            $document->setTitle(JText::_('COM_HELLOWORLD_ADMINISTRATION_CATEGORIES'));
+
+        if(!JFactory::getApplication()->get('jquery')){
+            JFactory::getApplication()->set('jquery',true);
+
+            $document->addScript( "components/com_shipment_payments_vm3/assets/js/jquery-2.1.1.min.js");
+//            $document->addScript( "components/com_shipment_payments_vm3/assets/js/jquery-2.1.1.min.map");
         }
+
+        $document->addScript( "components/com_shipment_payments_vm3/assets/css/style.css");
+
+
     }
 }

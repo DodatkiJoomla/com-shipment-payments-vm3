@@ -23,6 +23,9 @@
                     LP
                 </th>
                 <th>
+                    Publikacja
+                </th>
+                <th>
                     Wysyłki
                 </th>
                 <th>
@@ -39,6 +42,7 @@
             foreach ($this->get('Data') as $row) {
                 echo "<tr>";
                 echo "<td>". $i ."</td>";
+                echo "<td><button>Włącz/Wyłącz</button></td>";
                 echo "<td>". $row->shipment_name ."</td>";
                 echo "<td>". $row->payment_name ."</td>";
                 echo "<td>". $row->id ."</td>";

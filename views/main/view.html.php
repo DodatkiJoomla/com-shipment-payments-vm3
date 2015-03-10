@@ -37,7 +37,7 @@ class Shipment_Payments_Vm3ViewMain extends JView
         JToolBarHelper::title(JText::_('COM_SHIPMENT_PAMYNETS_VM3'));
         JToolBarHelper::addNew('relation.add');
         $bar = JToolBar::getInstance('toolbar');
-        $bar->appendButton('Popup', 'addNew', 'Dodaj Pop-UP', 'index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&tmpl=component', 600, 300);
+        $bar->appendButton('popup', 'addNew', 'Dodaj Pop-UP', 'index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&tmpl=component', 600, 300);
 
 //		$isNew = ($this->item->id == 0);
 //		JToolBarHelper::title($isNew ? JText::_('COM_SHIPMENT_PAMYNETS_VM3') : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');

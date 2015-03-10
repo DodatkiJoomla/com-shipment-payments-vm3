@@ -9,7 +9,7 @@ defined('_JEXEC') or die('Restricted Access');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_shipment_payments_vm3'); ?>"
+<form action="<?php echo JRoute::_('index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&tmpl=component'); ?>"
       method="post" name="adminForm" id="adminForm">
     <fieldset class="adminform">
         <legend><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_LINK_FORM_DETAIL' ); ?></legend>
@@ -37,6 +37,7 @@ JHtml::_('behavior.formvalidation');
         </select>
     </fieldset>
     <div>
+        <input type="submit" value="Zapisz" />
         <input type="hidden" name="task" value="relation.edit" />
         <?php echo JHtml::_('form.token'); ?>
     </div>
