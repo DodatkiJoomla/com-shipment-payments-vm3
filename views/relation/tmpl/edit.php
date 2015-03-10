@@ -9,12 +9,12 @@ defined('_JEXEC') or die('Restricted Access');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_shipment_payments_vm3&view=relation&layout=edit'); ?>"
+<form action="<?php echo JRoute::_('index.php?option=com_shipment_payments_vm3'); ?>"
       method="post" name="adminForm" id="adminForm">
     <fieldset class="adminform">
         <legend><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_LINK_FORM_DETAIL' ); ?></legend>
-        <label for="shipment_id"><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_DELIVERY_METHOD' ); ?></label>
-        <select name="shipment_id" type="list" default="" description="" id="shipment_id">
+        <label for="virtuemart_shipmentmethod_id"><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_DELIVERY_METHOD' ); ?></label>
+        <select name="virtuemart_shipmentmethod_id" type="list" default="" description="" id="virtuemart_shipmentmethod_id">
             <?php
             foreach ($this->get('Delivery') as $row) {
                 echo '<option value="' . $row->id . '">' . $row->shipment_name . '</option>';
@@ -24,8 +24,8 @@ JHtml::_('behavior.formvalidation');
             ?>
 
         </select>
-        <label for="payment_id"><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_PAYMENT_METHOD' ); ?></label>
-        <select name="payment_id" type="list" default="" description="" id="payment_id" multiple>
+        <label for="virtuemart_paymentmethod_id"><?php echo JText::_( 'COM_SHIPMENT_PAMYNETS_VM3_PAYMENT_METHOD' ); ?></label>
+        <select name="virtuemart_paymentmethod_id" type="list" default="" description="" id="virtuemart_paymentmethod_id" multiple>
             <?php
             foreach ($this->get('Payment') as $row) {
                 echo '<option value="' . $row->id . '">' . $row->payment_name . '</option>';

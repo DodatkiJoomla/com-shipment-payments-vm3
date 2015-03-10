@@ -26,6 +26,8 @@ class Shipment_Payments_Vm3ViewRelations extends JView
 		// Set the toolbar
 		$this->addToolBar();
 
+
+
 		// Display the template
 		parent::display($tpl);
 
