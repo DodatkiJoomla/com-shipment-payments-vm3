@@ -9,19 +9,12 @@ class Shipment_Payments_Vm3ViewRelation extends JView
 {
 	public function display($tpl = null) 
 	{
+        $app = JFactory::getApplication();
+
 		// get the Data
-		$form = $this->get('Form');
-
-		$item = $this->get('Item');
-
-
-//        var_dump($this->getModel());
-
-		// Assign the Data
-		$this->form = $form;
-		$this->item = $item;
-
-//        var_dump($this->form);
+        $this->shipmentList = $this->get('Shipments');
+        $this->paymentList = $this->get('Payments');
+        $this->itemId = $app->input->get('id', 0, 'INT');
 
 		// Set the toolbar
 		$this->addToolBar();
@@ -39,7 +32,7 @@ class Shipment_Payments_Vm3ViewRelation extends JView
         JToolBarHelper::title(JText::_('COM_SHIPMENT_PAMYNETS_VM3'));
 //        JToolBarHelper::addNew('relation.add');
         JToolBarHelper::save('relation.save');
-        $isNew = ($this->item->id == 0);
+        $isNew = false;
         JToolBarHelper::cancel('relation.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 //		$isNew = ($this->item->id == 0);
 //		JToolBarHelper::title($isNew ? JText::_('COM_SHIPMENT_PAMYNETS_VM3') : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');

@@ -44,9 +44,9 @@
                     echo "<tr>";
                     echo "<td>". $i ."</td>";
                     echo "<td><button>Włącz/Wyłącz</button></td>";
-                    echo "<td>". $row->shipment_name ."</td>";
+                    echo "<td><a href='".JRoute::_('index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&id='.$row->virtuemart_shipmentmethod_id)."'>".$row->shipment_name."</a></td>";
                     echo "<td>". $row->payment_name ."</td>";
-                    echo "<td>". $row->id ."</td>";
+                    echo "<td></td>";
                     echo "</tr>";
                     $i++;
                 }

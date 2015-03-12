@@ -10,13 +10,9 @@ class Shipment_Payments_Vm3ViewRelations extends JView
     public function display($tpl = null)
     {
         // get the Data
-        $form = $this->get('Form');
         $item = $this->get('Item');
 
-//        var_dump($this->getModel());
-
         // Assign the Data
-        $this->form = $form;
         $this->item = $item;
 
 //        var_dump($this->form);

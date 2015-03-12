@@ -4,7 +4,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modeladmin');
 
-class Shipment_Payments_Vm3ModelRelations extends JModelAdmin
+class Shipment_Payments_Vm3ModelRelations extends JModel
 {
 	public function getForm($data = array(), $loadData = true)
 	{
@@ -39,37 +39,24 @@ class Shipment_Payments_Vm3ModelRelations extends JModelAdmin
 	}
 
     public function getData() {
-        $sql_clear = "SELECT `xref`.`id`, `xref`.`virtuemart_paymentmethod_id`,
-                        `payLang`.`payment_name`,
-                        `xref`.`virtuemart_shipmentmethod_id`,
-                        `shipLang`.`shipment_name`
-                      FROM `j25vm_vm3_shipmentmethod_paymentmethods_xref` AS `xref`
-                      INNER JOIN `j25vm_virtuemart_paymentmethods_pl_pl` AS `payLang`
-                      ON `xref`.`virtuemart_paymentmethod_id` = `payLang`.`virtuemart_paymentmethod_id`
-                      INNER JOIN `j25vm_virtuemart_shipmentmethods_pl_pl` AS `shipLang`
-                      ON `xref`.`virtuemart_shipmentmethod_id` = `shipLang`.`virtuemart_shipmentmethod_id`";
 
         $db = JFactory::getDBO();
 
         $query = $db->getQuery(true);
-        //
-        $query->select($db->quoteName(array('xref.id', 'xref.virtuemart_paymentmethod_id',
-                        'payLang.payment_name',
-                        'xref.virtuemart_shipmentmethod_id',
-                        'shipLang.shipment_name'
-        )))
+        $query->
+            select($db->quoteName(
+                array(
+                    'xref.virtuemart_paymentmethod_id',
+                    'payLang.payment_name',
+                    'xref.virtuemart_shipmentmethod_id',
+                    'shipLang.shipment_name'
+            )))
             ->from($db->quoteName('#__vm3_shipmentmethod_paymentmethods_xref', 'xref'))
             ->join('RIGHT', $db->quoteName('#__virtuemart_paymentmethods_'. $this->Lang(), 'payLang') . ' ON (' . $db->quoteName('xref.virtuemart_paymentmethod_id') . ' = ' . $db->quoteName('payLang.virtuemart_paymentmethod_id') . ')')
             ->join('INNER', $db->quoteName('#__virtuemart_shipmentmethods_'. $this->Lang(), 'shipLang') . ' ON (' . $db->quoteName('xref.virtuemart_shipmentmethod_id') . ' = ' . $db->quoteName('shipLang.virtuemart_shipmentmethod_id') . ')');
-//            ->where($db->quoteName('xref.publish') .'=1' );
         $db->setQuery($query);
 
-
-        return $db->loadObjectList();
+        $results = $db->loadObjectList();
+        return $results;
     }
-	public function getTable($name = 'Relation', $prefix = 'Shipment_Payments_Vm3Table', $options = array())
-	{
-
-		return parent::getTable($name, $prefix, $options);
-	}
 }

@@ -20,7 +20,6 @@ class Shipment_Payments_Vm3_Helper
             JFactory::getApplication()->set('jquery',true);
 
             $document->addScript( "components/com_shipment_payments_vm3/assets/js/jquery-2.1.1.min.js");
-//            $document->addScript( "components/com_shipment_payments_vm3/assets/js/jquery-2.1.1.min.map");
         }
 
         $document->addScript( "components/com_shipment_payments_vm3/assets/css/style.css");

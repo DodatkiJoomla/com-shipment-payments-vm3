@@ -12,15 +12,32 @@ JHtml::_('behavior.formvalidation');
 <form action="<?php echo JRoute::_('index.php?option=com_shipment_payments_vm3'); ?>"
       method="post" name="adminForm" id="adminForm">
     <fieldset class="adminform">
-        <legend><?php echo JText::_( 'COM_HELLOWORLD_HELLOWORLD_DETAILS' ); ?></legend>
-        <ul class="adminformlist">
-            <!--            --><?php //foreach($this->form->getFieldset() as $field): ?>
-            <!--                <li>--><?php //echo $field->label;echo $field->input;?><!--</li>-->
-            <!--            --><?php //endforeach; ?>
-        </ul>
+        <legend><?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_LINK_FORM_DETAIL'); ?></legend>
+        <label for="virtuemart_shipmentmethod_id"><?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_DELIVERY_METHOD'); ?></label>
+        <select name="virtuemart_shipmentmethod_id" id="virtuemart_shipmentmethod_id">
+            <?php
+            foreach ($this->shipmentList as $row) {
+                echo '<option value="' . $row->virtuemart_shipmentmethod_id . '">' . $row->shipment_name . '</option>';
+            }
+            ?>
+        </select>
+
+        <label for="virtuemart_paymentmethod_id"><?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_PAYMENT_METHOD'); ?></label>
+        <select name="virtuemart_paymentmethods_id[]" id="virtuemart_paymentmethod_id" multiple>
+            <?php
+            foreach ($this->paymentList as $row) {
+                echo '<option value="' . $row->virtuemart_paymentmethod_id . '">' . $row->payment_name . '</option>';
+            }
+            ?>
+        </select>
     </fieldset>
     <div>
-        <input type="hidden" name="task" value="" />
+        <input type="hidden" name="task" value="relation.edit"/>
         <?php echo JHtml::_('form.token'); ?>
     </div>
 </form>
+
+
+
+
+
