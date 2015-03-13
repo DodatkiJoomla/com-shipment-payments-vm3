@@ -42,11 +42,13 @@ class Shipment_Payments_Vm3ModelRelation extends JModelAdmin
     public function saveRelation($virtuemartShipmentmethodId, array $virtuemartPaymentmethodsId)
     {
         $db =& JFactory::getDBO();
-
+//        if(!isset($virtuemartShipmentmethodId)) {
+//
+//        }
         $query = $db->getQuery(true);
-        $query->delete('#__vm3_shipmentmethod_paymentmethods_xref')->where(array(
-            'virtuemart_shipmentmethod_id' => $virtuemartShipmentmethodId
-        ));
+        $query->delete('#__vm3_shipmentmethod_paymentmethods_xref')
+            ->where($db->quoteName('virtuemart_shipmentmethod_id').' = '. $virtuemartShipmentmethodId
+        );
         $db->setQuery($query);
         if ($db->execute()==false) {
             throw new Exception('Database error on delete.');
