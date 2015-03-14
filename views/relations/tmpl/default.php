@@ -17,36 +17,51 @@
         <input type="hidden" name="task" value=""/>
         <?php echo JHtml::_('form.token'); ?>
         <table class="adminlist">
-            <thead >
+            <thead>
             <tr>
-                <th>
-                    LP
+                <th width="1%">
+                    <input type="checkbox" name="checkall-toggle" value=""
+                           title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)"/>
+
+                </th>
+                <th width="2%">
+                    <?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_NUM'); ?>
+                </th>
+                <th width="2%">
+                    <?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_PUBLISHING'); ?>
                 </th>
                 <th>
-                    Publikacja
+                    <?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_DELIVERY'); ?>
                 </th>
                 <th>
-                    Wysyłki
+                    <?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_DELIVERY_PAYMENT'); ?>
                 </th>
-                <th>
-                    Powiązane Płatności
-                </th>
-                <th>
-                    ID
+                <th width="1%">
+                    <?php echo JText::_('JGRID_HEADING_ID'); ?>
                 </th>
             </tr>
             </thead>
             <tbody>
             <?php
-            if( $this->get('Data') ) {
+
+            if ($this->get('Data')) {
                 $i = 1;
                 foreach ($this->get('Data') as $row) {
+
+
                     echo "<tr>";
-                    echo "<td>". $i ."</td>";
-                    echo "<td><button>Włącz/Wyłącz</button></td>";
-                    echo "<td><a href='".JRoute::_('index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&id='.$row->virtuemart_shipmentmethod_id)."'>".$row->shipment_name."</a></td>";
-                    echo "<td>". $row->payment_name ."</td>";
-                    echo "<td></td>";
+                    echo "<td>" . JHtml::_('grid.id', $i, $row['virtuemart_shipmentmethod_id']) . "</td>";
+                    echo "<td>" . $i . "</td>";
+                    echo "<td>" . JHtml::_('jgrid.published', $row['published'], $i, 'categories.') . "</td>";
+                    echo "<td><a href='" . JRoute::_('index.php?option=com_shipment_payments_vm3&view=relation&layout=edit&id=' . $row['virtuemart_shipmentmethod_id']) . "'>" . $row['shipment_name'] . "</a></td>";
+                    echo "<td>";
+                    echo "<ul>";
+                    foreach ($row['payments'] as $key) {
+                        echo "<li>" . $key['payment_name'];
+                    }
+                    echo "</ul>";
+                    echo "</td>";
+                    echo "<td>" . $row['virtuemart_shipmentmethod_id'] . "</td>";
                     echo "</tr>";
                     $i++;
                 }
@@ -63,9 +78,11 @@
             <tfoot>
             <tr>
                 <td colspan="10">
-                    <div class="container"><div class="pagination">
+                    <div class="container">
+                        <div class="pagination">
 
-                            <div class="limit">Pokaż <select id="limit" name="limit" class="inputbox" size="1" onchange="Joomla.submitform();">
+                            <div class="limit">Pokaż <select id="limit" name="limit" class="inputbox" size="1"
+                                                             onchange="Joomla.submitform();">
                                     <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="15">15</option>
@@ -79,7 +96,9 @@
                             </div>
                             <div class="limit"></div>
                             <input type="hidden" name="limitstart" value="0">
-                        </div></div>				</td>
+                        </div>
+                    </div>
+                </td>
             </tr>
             </tfoot>
         </table>
