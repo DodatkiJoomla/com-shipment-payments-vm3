@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controller');
 
-class Shipment_Payments_Vm3Controller extends JController
+class Shipment_Payments_Vm3Controller extends JControllerLegacy
 {
 	function display($cachable = false,$urlparams = false)
 	{

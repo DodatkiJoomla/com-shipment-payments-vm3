@@ -4,7 +4,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modeladmin');
 
-class Shipment_Payments_Vm3ModelRelations extends JModel
+class Shipment_Payments_Vm3ModelRelations extends JModelLegacy
 {
 	public function getForm($data = array(), $loadData = true)
 	{

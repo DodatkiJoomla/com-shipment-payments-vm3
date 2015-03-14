@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class Shipment_Payments_Vm3ViewRelation extends JView
+class Shipment_Payments_Vm3ViewRelation extends JViewLegacy
 {
 	public function display($tpl = null) 
 	{
