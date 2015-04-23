@@ -36,18 +36,14 @@
                 <th>
                     <?php echo JText::_('COM_SHIPMENT_PAMYNETS_VM3_DELIVERY_PAYMENT'); ?>
                 </th>
-                <th width="1%">
-                    <?php echo JText::_('JGRID_HEADING_ID'); ?>
-                </th>
             </tr>
             </thead>
             <tbody>
             <?php
 
-            if ($this->get('Data')) {
+            if (count($this->data)) {
                 $i = 1;
-                foreach ($this->get('Data') as $row) {
-
+                foreach ($this->data as $row) {
 
                     echo "<tr>";
                     echo "<td>" . JHtml::_('grid.id', $i, $row['virtuemart_shipmentmethod_id']) . "</td>";
@@ -61,7 +57,6 @@
                     }
                     echo "</ul>";
                     echo "</td>";
-                    echo "<td>" . $row['virtuemart_shipmentmethod_id'] . "</td>";
                     echo "</tr>";
                     $i++;
                 }

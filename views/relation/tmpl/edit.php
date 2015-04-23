@@ -17,7 +17,8 @@ JHtml::_('behavior.formvalidation');
         <select name="virtuemart_shipmentmethod_id" id="virtuemart_shipmentmethod_id">
             <?php
             foreach ($this->shipmentList as $row) {
-                echo '<option value="' . $row->virtuemart_shipmentmethod_id . '">' . $row->shipment_name . '</option>';
+                $selected = $this->isNew && $row->virtuemart_shipmentmethod_id==$this->itemId ? ' selected="selected" ' : '';
+                echo '<option value="' . $row->virtuemart_shipmentmethod_id . '" '.$selected.'>' . $row->shipment_name . '</option>';
             }
             ?>
         </select>
@@ -26,6 +27,7 @@ JHtml::_('behavior.formvalidation');
         <select name="virtuemart_paymentmethods_id[]" id="virtuemart_paymentmethod_id" multiple>
             <?php
             foreach ($this->paymentList as $row) {
+//                $selected = $this->isNew && $row->virtuemart_shipmentmethod_id==$this->itemId ? ' selected="selected" ' : '';
                 echo '<option value="' . $row->virtuemart_paymentmethod_id . '">' . $row->payment_name . '</option>';
             }
             ?>
